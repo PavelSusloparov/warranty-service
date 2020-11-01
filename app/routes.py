@@ -1,6 +1,5 @@
 import os
 import threading
-from datetime import datetime
 import json
 import random
 
@@ -66,12 +65,12 @@ def upload_s3(warranty_json):
     with open(TEMP_FILE_NAME, 'w') as f:
         json.dump(warranty_json, f, sort_keys=True, indent=4)
     s3 = boto3.client('s3',
-                      aws_access_key_id='AKIAIHBUYDKNIT3ZBYSQ',
-                      aws_secret_access_key='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',
+                      aws_access_key_id=flask_app.config.get("AWS_ACCESS_KEY"),
+                      aws_secret_access_key=flask_app.config.get("AWS_SECRET_KEY")
                       )
     with open(TEMP_FILE_NAME, "rb") as f:
-        s3.upload_fileobj(f, "warranty-service", "warranty-%s.txt" % warranty_json['id'])
-    os.remove(TEMP_FILE_NAME)
+        s3.upload_fileobj(f, flask_app.config.get("S3_BUCKET_NAME"), "warranty-%s.txt" % warranty_json['id'])
+    os.remove(TEMP_FILE_NAME) if os.path.exists(TEMP_FILE_NAME) else print('Can not find file for deletion')
 
 
 def store_fetch_or_create(data):

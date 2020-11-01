@@ -3,3 +3,6 @@ venv
 app/.pytest_cache
 tests/.pytest_cache
 app/app.db
+.env
+app/temp.txt
+app/__pycache__
