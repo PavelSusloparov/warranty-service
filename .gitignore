@@ -8,3 +8,8 @@ app/app.db
 app/temp.txt
 app/__pycache__
 app/tests/__pycache__
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

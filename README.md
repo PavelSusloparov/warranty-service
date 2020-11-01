@@ -93,5 +93,5 @@ pytest
 
 Run application
 ```
-FLASK_APP=app flask run
+FLASK_ENV=development FLASK_APP=app flask run
 ```
