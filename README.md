@@ -1,7 +1,8 @@
 # Overview
 
-System where thousands of retail stores are concurrently sending product data to a service that will generate warranties based on item cost and type.
+System where thousands of retail stores are concurrently sending product data to a service that generates warranties based on item cost and type.
 Each warranty is tied to a store.
+
 The service provides API that will allow creation and retrieval of warranties.
 
 ## /warranties (POST request):
@@ -45,7 +46,7 @@ The service uploads newly created warranties as a non-blocking thread to public 
 
 # Assumptions
 
-1. The service uses SQLite database, which does not allow concurrent requests. Use MySql or Postqres to support multiple use cases requests.
+1. The service is a basic services and uses SQLite database, which does not allow concurrent requests. Use MySql or Postqres to support simultaneous calls use case.
 
 2. The tech description does not provide any modeling requirements for item. I used separate Item model to store item related data. Warranty has a foreign key to item.
 
