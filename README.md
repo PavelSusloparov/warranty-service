@@ -75,6 +75,13 @@ Install dependencies
 pip3 install -r requirements.txt
 ```
 
+Create a `.env` file with secrets in the project root. Provide your values
+```
+AWS_ACCESS_KEY=
+AWS_SECRET_KEY=
+S3_BUCKET_NAME=
+```
+
 Run tests
 ```
 pytest
