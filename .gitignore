@@ -6,3 +6,4 @@ app/app.db
 .env
 app/temp.txt
 app/__pycache__
+app/tests/__pycache__

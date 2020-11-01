@@ -70,7 +70,7 @@ def upload_s3(warranty_json):
                       )
     with open(TEMP_FILE_NAME, "rb") as f:
         s3.upload_fileobj(f, flask_app.config.get("S3_BUCKET_NAME"), "warranty-%s.txt" % warranty_json['id'])
-    os.remove(TEMP_FILE_NAME) if os.path.exists(TEMP_FILE_NAME) else print('Can not find file for deletion')
+    os.remove(TEMP_FILE_NAME) if os.path.exists(TEMP_FILE_NAME) else None
 
 
 def store_fetch_or_create(data):

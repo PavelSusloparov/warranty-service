@@ -65,7 +65,7 @@ Create venv
 python3 -m venv ./venv
 ```
 
-Active venv
+Activate venv
 ```
 . venv/bin/activate
 ```
@@ -82,14 +82,14 @@ AWS_SECRET_KEY=
 S3_BUCKET_NAME=
 ```
 
+Source the `.env` file before running tests or app
+```
+set -a; source .env; set +a;
+```
+
 Run tests
 ```
 pytest
-```
-
-Source the `.env` file before running the app
-```
-set -a; source .env; set +a;
 ```
 
 Run application
