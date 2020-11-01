@@ -1,0 +1,5 @@
+.idea/
+venv
+app/.pytest_cache
+tests/.pytest_cache
+app/app.db
