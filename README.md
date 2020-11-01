@@ -87,6 +87,11 @@ Run tests
 pytest
 ```
 
+Source the `.env` file before running the app
+```
+set -a; source .env; set +a;
+```
+
 Run application
 ```
 FLASK_APP=app flask run
