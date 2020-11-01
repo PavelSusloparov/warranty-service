@@ -5,7 +5,11 @@ Each warranty is tied to a store.
 
 The service provides API that will allow creation and retrieval of warranties.
 
-## /warranties (POST request):
+## Service
+
+The service is flask/python 3.7/sqlite application.
+
+### /warranties (POST request):
 - POST requests sent to the service will have a payload in the following format: 
 ```
     {
@@ -27,7 +31,7 @@ c) After creating the warranty object, a new thread that uploads the current pay
     
 d) API response includes the warranty object that was just created.
 
-## /warranties (GET request)
+### /warranties (GET request)
 
 - GET requests to this endpoint returns warranties for a given sku, item_type, or store_uuid.
 An example GET request URL would be the following: /warranties?sku=sku-12345&item_type=furniture&store_uuid=b21ad0676f26439.
@@ -80,11 +84,6 @@ Create a `.env` file with secrets in the project root. Provide your values
 AWS_ACCESS_KEY=
 AWS_SECRET_KEY=
 S3_BUCKET_NAME=
-```
-
-Source the `.env` file before running tests or app
-```
-set -a; source .env; set +a;
 ```
 
 Run tests
