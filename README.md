@@ -39,9 +39,7 @@ An example GET request URL would be the following: /warranties?sku=sku-12345&ite
 a) If any of query parameters exist, all query parameters are validated. all sku, item_type, store_uuid are present.
     If none of query parameters exist, all existent warranties are returned.
 
-Code is covered with unit and integration tests.
-Unit tests test modules of code.
-Integration tests test endpoints, listed above.
+Code is covered with unit tests using pytest.
 
 The service is deployed to AWS using Elastic Beanstalk - [Link](http://develop.eba-vppbjmsc.us-east-1.elasticbeanstalk.com/).
 
