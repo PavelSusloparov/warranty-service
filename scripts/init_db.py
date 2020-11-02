@@ -1,6 +1,6 @@
-from app import db
-from app.models import Warranty, Store, Item
-from app.schema import WarrantySchema, StoreSchema, ItemSchema
+from application import db
+from application.models import Warranty, Store, Item
+from application.schema import WarrantySchema, StoreSchema, ItemSchema
 
 db.create_all()
 warranty_schema = WarrantySchema()

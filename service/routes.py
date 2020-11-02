@@ -5,21 +5,21 @@ import random
 
 import boto3
 
-from app import flask_app, db
+from service import application, db
 from flask import request, jsonify
 
-from app.models import Warranty, Store, Item
-from app.schema import warranty_schema, warranty_schema_list, create_warranty_schema, get_warranty_schema
+from service.models import Warranty, Store, Item
+from service.schema import warranty_schema, warranty_schema_list, create_warranty_schema, get_warranty_schema
 
 TEMP_FILE_NAME = 'temp.txt'
 
 
-@flask_app.route('/', methods=['GET'])
+@application.route('/', methods=['GET'])
 def index():
     return 'Hello World!'
 
 
-@flask_app.route('/warranties', methods=['POST'])
+@application.route('/warranties', methods=['POST'])
 def create_warranty():
     data = request.get_json()
     errors = create_warranty_schema.validate(data=data)
@@ -37,7 +37,7 @@ def create_warranty():
     return response, 202
 
 
-@flask_app.route('/warranties', methods=['GET'])
+@application.route('/warranties', methods=['GET'])
 def get_warranties():
     args = request.args
     if args.get("sku") is None and args.get("item_type") is None and args.get("store_uuid") is None:
@@ -65,11 +65,11 @@ def upload_s3(warranty_json):
     with open(TEMP_FILE_NAME, 'w') as f:
         json.dump(warranty_json, f, sort_keys=True, indent=4)
     s3 = boto3.client('s3',
-                      aws_access_key_id=flask_app.config.get("AWS_ACCESS_KEY"),
-                      aws_secret_access_key=flask_app.config.get("AWS_SECRET_KEY")
+                      aws_access_key_id=application.config.get("AWS_ACCESS_KEY"),
+                      aws_secret_access_key=application.config.get("AWS_SECRET_KEY")
                       )
     with open(TEMP_FILE_NAME, "rb") as f:
-        s3.upload_fileobj(f, flask_app.config.get("S3_BUCKET_NAME"), "warranty-%s.txt" % warranty_json['id'])
+        s3.upload_fileobj(f, application.config.get("S3_BUCKET_NAME"), "warranty-%s.txt" % warranty_json['id'])
     os.remove(TEMP_FILE_NAME) if os.path.exists(TEMP_FILE_NAME) else None
 
 

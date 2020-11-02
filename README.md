@@ -43,7 +43,7 @@ Code is covered with unit and integration tests.
 Unit tests test modules of code.
 Integration tests test endpoints, listed above.
 
-The service is deployed to AWS using Elastic Beanstalk - [Link](https://example.com).
+The service is deployed to AWS using Elastic Beanstalk - [Link](http://develop.eba-vppbjmsc.us-east-1.elasticbeanstalk.com/).
 
 The service uploads newly created warranties as a non-blocking thread to public [S3 bucket](https://s3.console.aws.amazon.com/s3/buckets/warranty-service?region=us-east-1)
 
@@ -93,5 +93,5 @@ pytest
 
 Run application
 ```
-FLASK_ENV=development FLASK_APP=app flask run
+FLASK_ENV=development FLASK_APP=service flask run
 ```

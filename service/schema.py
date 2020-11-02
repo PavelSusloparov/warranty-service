@@ -1,7 +1,5 @@
-from marshmallow_sqlalchemy import fields
-
-from app import ma
-from app.models import Warranty, Store
+from service import ma
+from service.models import Warranty, Store
 from marshmallow import fields, Schema
 
 

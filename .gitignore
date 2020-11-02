@@ -1,13 +1,13 @@
 .idea/
 venv
 .pytest_cache
-app/.pytest_cache
+service/.pytest_cache
 tests/.pytest_cache
-app/app.db
+service/service.db
 .env
-app/temp.txt
-app/__pycache__
-app/tests/__pycache__
+service/temp.txt
+service/__pycache__
+service/tests/__pycache__
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*

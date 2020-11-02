@@ -1,5 +1,5 @@
-from app.tests.test_helpers import create_warranty, get_warranty
-from app.tests.test_base import client
+from application.tests.test_helpers import create_warranty, get_warranty
+from application.tests.test_base import client
 
 
 def test_get_warranty_happy_path(client):

@@ -1,8 +1,8 @@
-from app import flask_app
+from application import flask_app
 import pytest
 import os
 import tempfile
-from app import db
+from application import db
 
 
 @pytest.fixture
